@@ -2,13 +2,17 @@
 
 Building new personal website with Flask.
 
-To run with virtualenv:
+To run the Flask app with virtualenv:
 ```
-> export FLASK_APP=app.py
+> source virtualenv/envname/bin/activate
+> export FLASK_APP=app
+> export FLASK_ENV=development
 > flask run
 ```
 
-To run with docker:
+Still trying to figure out how to run the actual Flask app with Docker.
+
+To run app.py with docker:
 ```
 > docker build -t blog:latest .  
 > docker run -p 5000:5000 blog  
@@ -17,4 +21,9 @@ To run with docker:
 To compose with docker:
 ```
 > docker-compose up 
+```
+
+For some reason, the docker container sometimes won't be killed with Ctrl+C, had to use
+```
+> docker kill $(docker ps -q)
 ```

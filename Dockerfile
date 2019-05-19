@@ -14,7 +14,8 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 80
 
 # Define environment variable
-ENV NAME World
+ENV FLASK_APP app
+ENV FLASK_ENV development
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD python app.py

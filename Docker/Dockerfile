@@ -18,4 +18,4 @@ ENV FLASK_APP app
 ENV FLASK_ENV development
 
 # Run app.py when the container launches
-CMD python app.py
+CMD ["python", "app.py"]

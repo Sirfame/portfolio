@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, flash, redirect, url_for
 from flask import request
 from flask import render_template
 
@@ -16,10 +16,14 @@ def login():
         return show_login_form()
 
 def do_the_login():
-    return 'logging in..'
+    if request.form["username"] != 'admin' and request.form["password"] != 'password':
+        error = 'Invalid credentials, please try again'
+    else:
+        return render_template('dashboard.html')
+    return render_template('login.html', error=error)
 
 def show_login_form():
-    return render_template('landing.html')
+    return render_template('login.html')
 
 def get_landing():
     return render_template('landing.html')
